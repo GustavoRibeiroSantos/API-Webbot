@@ -1,0 +1,110 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>WebBot: Sherlockups</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image:url("{% static 'images/capa.jpg'%}");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+</head>  
+<body> 
+
+<!-- Links de cima --> 
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">QUEM SOMOS</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">SEU PEDIDO</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="https://gitlab.com/gof-webbot/projetowebbot" class="w3-button w3-block w3-black">GIT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="http://fatecsjc-prd.azurewebsites.net/" class="w3-button w3-block w3-black">FATEC</a>
+    </div>
+  </div>
+</div>
+
+<!-- Sobreposição da capa -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">Sherlockcups<br></span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Gang of Five Productions</span>
+  </div>
+</header>
+
+<!-- background cor -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- Conteúdo QUEM SOMOS -->
+<div class="w3-container" id="QUEM SOMOS">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">QUEM SOMOS?</span></h5>
+    <p>Somos um Web Bot produzido por alunos da Fatec, cujo objetivo é vasculhar a internet em busca de preços de bebidas!
+       Sherlockups faz referência ao famoso detetive Sherlock Holmes, e nosso "cups" vem de "copos" da lingua inglesa.</p>
+       <p>Temos como publico alvo, consumidores que gostam de apreciar cerveja ou qualquer bebida especifica (ou seja, todo mundo!)
+       Porém, como diferencial, nosso consumidor pode efetuar uma busca comparativa de preços online.
+       </p>
+    
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"O comércio eletrônico ou e-commerce representa parte do presente e do futuro do comércio. 
+             Existem várias oportunidades de negócios espalhadas pela internet, além de muitas que são criadas em todo momento. 
+             É bem provável que uma pesquisa de preços na internet traga não só o menor preço, como também melhores opções de bens.."</i></p>
+      <p>TEIXEIRA, 2015,p.19</p>
+    </div>
+    <img src="{% static 'images/drinks-3.jpg'%}" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <p><strong>Nossa disponibilidade:</strong> só depende de você, traga sua sede!</p>
+    
+  </div>
+</div>
+
+<!--Conteúdo Final e inserção de dados-->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">COMO FUNCIONA?</span></h5>
+    <p>Simples, primeiro pense na sua bebida favorita...</p>
+    <img src="{% static 'images/drink2.jpg'%}" class="w3-image" style="width:100%">
+    <p><span class="w3-tag">PRONTO!</span> Agora basta preencher os requisitos abaixo: seu tipo de bebida, a marca que você prefere e a quantidade que deseja. Após uma investigação do nosso detetive favorito, exibiremos sua gelada. Obrigado por escolher Sherlockups, o primeiro Bot de bebidas do Brasil.</p>
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide"><center>INSIRA AQUI SEU PEDIDO</center></span></h5>
+    <form method="post" action="scrap">
+      <p><input id="drink" type="text" placeholder="Tipo de bebida" name="drink"></p>
+      <p><input id="brand" type="text" placeholder="Marca desejada" name="brand"></p>
+      <p><input id="amount" type="text" placeholder="Quantidade desejada" name="amount"></p>
+      <p><button class="w3-button w3-black" type="submit" value="Submit">ENVIAR</button></p>
+    </form>
+  </div>
+</div>
+
+
+<!-- Rodapé -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Powered by Gang of Five</p>
+  <p><center>Members: Daniele Santos, Gabriel Queiroz, Gustavo Ribeiro e Rodolfo de Jesus.<br> Master: Robson Silva </center></p>
+</footer>
+</body>
+</html>
