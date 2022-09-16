@@ -12,7 +12,6 @@ def home(request):
 
 @csrf_exempt
 def pesq(request):
-    
 
     options = Options()
     options.add_argument("--headless")
